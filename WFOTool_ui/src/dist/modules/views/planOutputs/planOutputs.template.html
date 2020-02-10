@@ -1,0 +1,115 @@
+<div ng-controller="planOutputsCtrl"
+     class="plan-outputs-container">
+    <div class="header">
+        <div class="text">
+            Plan Output
+        </div>
+        <div class="buttons">
+            <button ng-click="savePlan(outputData)" class="wfo-button primary">
+                Save Plan
+            </button>
+            <button class="wfo-button primary" ng-click="downloadPlan(outputData)">
+                Download
+            </button>
+        </div>
+    </div>
+    
+<!-- filters commented out -->
+    <!-- <div class="filters">
+        <div class="label">
+            Filter to:
+        </div>
+        <select>
+            <option value=""
+                    selected>All Worker Types</option>
+            <option value="test">test</option>
+        </select>
+        <select>
+            <option value=""
+                    selected>All Case Types</option>
+            <option value="test">test</option>
+        </select>
+    </div> -->
+
+    <!-- <div>plan_inputs_id = {{outputData.plan_inputs_id}}</div> -->
+    <!-- <div>id = {{outputData.id}}</div> -->
+    <div class="metrics">
+        <div class="header">
+            Projected Metrics
+        </div>
+        <div class="content">
+            <div class="left">
+                <div class="top">
+                    <div class="metric">
+                        <div class="label">Revenue</div>
+                        <div class="num dollar">{{outputData.summary_metrics.revenue_disp}}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="label">Cost</div>
+                        <div class="num dollar">{{outputData.summary_metrics.cost_disp}}</div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="metric">
+                        <div class="label">ROI</div>
+                        <div class="num">{{outputData.summary_metrics.roi_percent_disp}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <div class="metric">
+                        <div class="label">Success Rate</div>
+                        <div class="num">{{outputData.summary_metrics.success_rate_disp}}</div>
+                    </div>
+                </div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+    </div>
+    <div class="details">
+        <div class="header">
+            Plan Details
+        </div>
+        <div class="table">
+            <table>
+                <tbody>
+                    <tr ng-repeat="row in outputData.plan_details_disp">
+                        <td ng-repeat="col in row track by $index">
+                            {{col}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- modals -->
+    <div ng-if="savePlanModalShown"
+         class="modal modal-wrapper"
+         ng-click="savePlan_close()">
+        <div class="modal-container"
+             ng-click="$event.stopPropagation()">
+            <div class="modal-title">
+                Give Your Plan a Name
+            </div>
+            <div class="input-name">
+                <div class="input-container">
+                    <input ng-model="savePlanData.title" class="input" type="text">
+                </div>
+            </div>
+            <div class="save-plan-buttons">
+                <div class="save-plan">
+                    <button ng-click="savePlan_submit(savePlanData)"
+                            ng-class="{'disabled': !savePlanData.title.length > 0}"
+                            class="wfo-button primary">Save Plan</button>
+                </div>
+            </div>
+            <div class="close">
+                <button class="wfo-button _icon close"
+                        ng-click="savePlan_close()"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+    </div>
+
+</div>

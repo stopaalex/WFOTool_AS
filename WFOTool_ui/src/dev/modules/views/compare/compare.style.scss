@@ -1,0 +1,90 @@
+@import '../../../scss/variables.scss';
+
+.compare-plans-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    max-width: $max_content_width;
+    margin: 0 auto;
+    background: #ffffff;
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .text {
+            padding: 1em;
+            font-size: 2em;
+        }
+    }
+    select {
+        padding: 5px;
+        border: 1px solid #e5e5e5;
+        // min-width: 200px;
+        width: 100%;
+    }
+
+    .plans {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        overflow: auto;
+
+        > div {
+            margin: 1em 2em;
+            // max-width: calc(30% - 4em);
+            width: calc(30% - 4em);
+
+            &:last-of-type {
+                width: 50px;
+            }
+
+            .select {
+                position: relative;
+                width: 100%;
+
+                label {
+                    position: absolute;
+                    left: 10px;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    transition: 150ms;
+                    pointer-events: none;
+
+                    &.plan-selected {
+                        top: 0;
+                        background: #ffffff;
+                        padding: 2px;
+                        color: #c5c5c5;
+                        font-size: .75em;
+                    }
+                }
+            }
+
+            .results .result {
+                display: flex;
+                justify-content: space-between;
+                margin: 2em 1em;
+
+                .highest-value {
+                    background: yellow;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .compare-plans-container {
+        .plans {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+             > div {
+                 width: 75%;
+             }
+        }
+    }
+}

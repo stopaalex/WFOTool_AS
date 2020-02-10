@@ -1,0 +1,15 @@
+
+# ignore .vscode
+.vscode
+
+# ignore node mdules
+node_modules
+
+# ignore the build scripts
+# buildScripts.json
+# deployDev.bat
+
+# ignore prod builds
+# lambda_mgmt/prod
+# lambda_mgmt/prod_
+# WFOTool_ui/src/prod

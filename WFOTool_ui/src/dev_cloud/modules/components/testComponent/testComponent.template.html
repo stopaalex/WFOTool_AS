@@ -1,0 +1,27 @@
+<div ng-controller="testComponentCtrl">
+
+    <div class="wfo-input">
+        <label for="dDistance">Distance</label>
+        <input id="dDistance" type="number" placeholder="distance" ng-model="data.distance">
+    </div>
+    <input class="range" type="range" ng-model="data.distance">
+
+    <div class="wfo-input">
+        <label for="dSpeed">Speed</label>
+        <input id="dSpeed" type="number" placeholder="speed" ng-model="data.speed">
+    </div>
+    <input class="range" type="range" ng-model="data.speed">
+
+    <div class="wfo-input">
+        <label for="dTankSize">Tank Size</label>
+        <input id="dTankSize" type="number" placeholder="tank saze" ng-model="data.tank_size">
+    </div>
+    <input class="range" type="range" ng-model="data.tank_size">
+
+    <button ng-click="testRest(data)" class="wfo-button">Submit</button>
+    <div style="margin: 10px;">
+        <span ng-if="testReturnData.length > 0">Outcome: </span>
+        {{testReturnData}}
+    </div>
+
+</div>

@@ -1,0 +1,69 @@
+{
+    "id": "61761d46-06ed-11ea-bfb8-d8f2ca4be654",
+    "title": "Default Data",
+    "created_by": "admin",
+    "fte": {
+        "Worker A": {
+            "title": "Worker A",
+            "burnRate": 100,
+            "fte": 500
+        },
+        "Worker B": {
+            "title": "Worker B",
+            "burnRate": 75,
+            "fte": 1750
+        },
+        "Worker C": {
+            "title": "Worker C",
+            "burnRate": 50,
+            "fte": 1000
+        }
+    },
+    "ai": {
+        "Case Type 1": {
+            "title": "Case Type 1",
+            "cases": 2000,
+            "hours": 3
+        },
+        "Case Type 2": {
+            "title": "Case Type 2",
+            "cases": 10000,
+            "hours": 1.5
+        },
+        "Case Type 3": {
+            "title": "Case Type 3",
+            "cases": 5000,
+            "hours": 7
+        }
+    },
+    "cc": {
+        "constraints": [
+            {
+                "case_type": "Case Type 1",
+                "comparator": "not exceed",
+                "volume": 1500
+            },
+            {
+                "case_type": "Case Type 2",
+                "comparator": "be at least",
+                "volume": 100
+            }
+        ]
+    },
+    "rf": {
+        "flexibility": [
+            {
+                "comparator": "At least",
+                "percent": 20,
+                "worker": "Worker C",
+                "case_type": "Case Type 1"
+            },
+            {
+                "comparator": "No more than",
+                "percent": 50,
+                "worker": "Worker A",
+                "case_type": "Case Type 2"
+            }
+        ]
+    }
+}

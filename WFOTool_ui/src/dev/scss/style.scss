@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+@import 'base.scss';
+@import 'loader.scss';
+@import 'alert.scss';
+
+@import '../modules/components/navigationComponent/navigationComponent.style.scss';
+
+// @import '../modules/components/testComponent/testComponent.style.scss';
+
+@import '../modules/views/home/home.style.scss';
+
+@import '../modules/views/planInputs/planInputs.style.scss';
+@import '../modules/views/planOutputs/planOutputs.style.scss';
+@import '../modules/views/compare/compare.style.scss';

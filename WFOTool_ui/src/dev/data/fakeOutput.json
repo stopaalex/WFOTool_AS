@@ -1,0 +1,16 @@
+{
+    "summary_metrics": {
+        "revenue": 1500000,
+        "cost": 500000,
+        "roi_percent": 3,
+        "success_rate": 0.4055
+    },
+    "plan_details": [
+        ["Plan Details", "Case Type 1", "Case Type 2", "Case Type 3", "Total"],
+        ["Worker A", 250, 333, 650, 1233],
+        ["Worker B", 250, 3500, 3250, 7200],
+        ["Worker C", 800, 2000, 900, 3700],
+        ["Total", 1500, 5833, 4800]
+    ]
+    
+}

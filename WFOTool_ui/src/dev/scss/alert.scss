@@ -1,0 +1,47 @@
+.wfo-alert-wrapper {
+    position: fixed;
+    z-index: 100;
+    top: 2em;
+    right: 2em;
+    
+    .alert {
+        padding: 1.25em 2.25em;
+        position: relative;
+        position: relative;
+        left: 0;
+        animation: slide-in 1s ease-in-out 1;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        margin: 5px 0;
+
+        &.success {
+            background: green;
+            color: #ffffff;
+        }
+
+        &.warning {
+            background: goldenrod;
+        }
+
+        &.failure {
+            background: red;
+            color: #ffffff;
+        }
+
+        .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            /* background: none; */
+            button {
+                background: none;
+                border: none;
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+@keyframes slide-in {
+    0% { left: calc(100% + 2em); }
+    100% { left: 0; }
+}

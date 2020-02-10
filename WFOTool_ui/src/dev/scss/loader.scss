@@ -1,0 +1,193 @@
+$green: #008744;
+$blue: #0057e7;
+$red: #d62d20;
+$yellow: #ffa700;
+$white: #eee;
+
+// scaling... any units
+$width: 100px;
+
+.loader {
+    position: relative;
+    margin: 0 auto;
+    width: $width;
+    &:before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+    }
+}
+
+.circular {
+    animation: rotate 2s linear infinite;
+    height: 100%;
+    transform-origin: center center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.path {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+
+    &.loading {
+        animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    }
+    
+    &.loaded {
+        animation: fadeOut 1s ease-in-out 1, color 6s ease-in-out 1;
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+@keyframes color {
+    100%,
+    0% {
+        stroke: $red;
+    }
+    40% {
+        stroke: $blue;
+    }
+    66% {
+        stroke: $green;
+    }
+    80%,
+    90% {
+        stroke: $yellow;
+    }
+}
+
+
+.showbox {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5%;
+}
+
+.wfo-loader-wrapper > div {
+    .showbox {
+        margin-top: 5%;
+    }
+    .textbox {
+        position: relative;
+        top: 70%;
+        text-align: center;
+    }
+}
+
+svg.ld {
+    width: 84px;
+    display: block;
+    margin: 7px auto 0;
+
+    .path {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+        &.circle {
+            -webkit-animation: dashl 0.75s ease-in-out;
+            animation: dashl 0.75s ease-in-out;
+        }
+        &.line {
+            stroke-dashoffset: 1000;
+            -webkit-animation: dashl 0.75s 0.3s ease-in-out forwards;
+            animation: dashl 0.75s 0.3s ease-in-out forwards;
+        }
+        &.check {
+            stroke-dashoffset: -100;
+            -webkit-animation: dash-check 0.75s 0.3s ease-in-out forwards;
+            animation: dash-check 0.75s 0.3s ease-in-out forwards;
+        }
+    }
+    
+    p {
+        text-align: center;
+        margin: 20px 0 60px;
+        font-size: 1.25em;
+        &.success {
+            color: #73af55;
+        }
+        &.error {
+            color: #d06079;
+        }
+    }
+}
+
+
+@-webkit-keyframes dashl {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes dashl {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@-webkit-keyframes dash-check {
+    0% {
+        stroke-dashoffset: -100;
+    }
+    100% {
+        stroke-dashoffset: 900;
+    }
+}
+
+@keyframes dash-check {
+    0% {
+        stroke-dashoffset: -100;
+    }
+    100% {
+        stroke-dashoffset: 900;
+    }
+}
+
+.fadeout {
+    opacity: 1;
+    animation: fadeOut 250ms ease-in-out 1;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

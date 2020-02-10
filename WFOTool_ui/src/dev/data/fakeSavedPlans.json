@@ -1,0 +1,154 @@
+{
+    "Fake Plan 2": {
+        "title": "Fake Plan 2",
+        "created_by": "ggooden",
+        "fte": {
+            "Worker A": {
+                "title": "Worker A",
+                "burnRate": 250,
+                "fte": 3500
+            },
+            "Worker B": {
+                "title": "Worker B",
+                "burnRate": 120,
+                "fte": 800
+            },
+            "Worker C": {
+                "title": "Worker C",
+                "burnRate": 65,
+                "fte": 5000
+            }
+        },
+        "ai": {
+            "Case Type 1": {
+                "title": "Case Type 1",
+                "cases": 2000,
+                "hours": 3.3
+            },
+            "Case Type 2": {
+                "title": "Case Type 2",
+                "cases": 50000,
+                "hours": 2.8
+            },
+            "Case Type 3": {
+                "title": "Case Type 3",
+                "cases": 5000,
+                "hours": 4
+            }
+        },
+        "cc": {
+            "constraints": [
+                {
+                    "case_type": "Case Type 1",
+                    "comparator": "be at least",
+                    "volume": 2000
+                },
+                {
+                    "case_type": "Case Type 1",
+                    "comparator": "not exceed",
+                    "volume": 4000
+                },
+                {
+                    "case_type": "Case Type 2",
+                    "comparator": "not exceed",
+                    "volume": 10000
+                },
+                {
+                    "case_type": "Case Type 3",
+                    "comparator": "be at least",
+                    "volume": 250
+                }
+            ]   
+        },
+        "rf": {
+            "flexibility": [
+                {
+                    "comparator": "No more than",
+                    "percent": 60,
+                    "worker": "Worker A",
+                    "case_type": "Case Type 2"
+                },
+                {
+                    "comparator": "Exactly",
+                    "percent": 50,
+                    "worker": "Worker B",
+                    "case_type": "Case Type 1"
+                }
+            ]
+        }
+    },
+    "Fake Plan 3": {
+        "title": "Fake Plan 3",
+        "created_by": "astopa",
+        "fte": {
+            "Worker A": {
+                "title": "Worker A",
+                "burnRate": 105,
+                "fte": 1250
+            },
+            "Worker B": {
+                "title": "Worker B",
+                "burnRate": 560,
+                "fte": 800
+            },
+            "Worker C": {
+                "title": "Worker C",
+                "burnRate": 55.25,
+                "fte": 4000
+            }
+        },
+        "ai": {
+            "Case Type 1": {
+                "title": "Case Type 1",
+                "cases": 115,
+                "hours": 12.5
+            },
+            "Case Type 2": {
+                "title": "Case Type 2",
+                "cases": 10555,
+                "hours": 4.25
+            },
+            "Case Type 3": {
+                "title": "Case Type 3",
+                "cases": 90000,
+                "hours": 3.75
+            }
+        },
+        "cc": {
+            "constraints": [
+                {
+                    "case_type": "Case Type 3",
+                    "comparator": "not exceed",
+                    "volume": 40000
+                },
+                {
+                    "case_type": "Case Type 1",
+                    "comparator": "equal",
+                    "volume": 100
+                }
+            ]
+        },
+        "rf": {
+            "flexibility": [
+                {
+                    "comparator": "At least",
+                    "percent": 50,
+                    "worker": "Worker B",
+                    "case_type": "Case Type 2"
+                },
+                {
+                    "comparator": "No more than",
+                    "percent": 30,
+                    "worker": "Worker A",
+                    "case_type": "Case Type 2"
+                },
+                {
+                    "comparator": "No more than",
+                    "percent": 40,
+                    "worker": "Worker C",
+                    "case_type": "Case Type 3"
+                }
+            ]
+        }
+    }
+}

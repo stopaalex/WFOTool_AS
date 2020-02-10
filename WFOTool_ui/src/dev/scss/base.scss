@@ -1,0 +1,163 @@
+@import "variables.scss";
+
+* {
+    box-sizing: border-box;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    // font-size: 16px;
+    letter-spacing: 0.05px;
+    font-display: swap;
+}
+
+.wfo-nav-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+
+    > div {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.wfo-content-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 200px;
+    // commented out but if desired - could be dropped back in
+    // background: #f5f5f5;
+    background-image: url("../imgs/background_tiles.png");
+    // --- TODO - better scrolling
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+button {
+    &.wfo-button {
+        background: none;
+        border: 1px solid #e5e5e5;
+        padding: 0.5em 1em;
+        cursor: pointer;
+        outline: none;
+
+        &.disabled {
+            user-select: none;
+            pointer-events: none;
+            opacity: 0.25;
+        }
+
+        &:hover {
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    &.primary {
+        background: #f5f5f5;
+    }
+
+    &.close {
+        color: red;
+    }
+}
+
+.input-container {
+    position: relative;
+    margin: 0 3em 0 0;
+    border: 1px solid #e5e5e5;
+    padding: 0 0 0 0.25em;
+
+    .input {
+        border: none;
+        outline: none;
+        padding: 0.5em 0.25em;
+        width: 100%;
+        // min-width: 125px;
+    }
+}
+
+.modal.modal-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .modal-container {
+        position: relative;
+        background: #ffffff;
+        min-width: 400px;
+        max-width: 1000px;
+        width: 60vw;
+        padding: 2em;
+
+        .close {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+        }
+
+        .modal-title {
+            font-size: 1.25em;
+            padding: 0.5em 0;
+        }
+
+        .input-row {
+            display: flex;
+            margin: 1em 0;
+
+            .label {
+                width: 90px;
+            }
+        }
+
+        .submit {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}
+
+.wfo-loader-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100000;
+    background: rgba(0, 0, 0, 0.25);
+
+    > div {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        width: 30vw;
+        height: 30vh;
+        background: #ffffff;
+        transform: translate(50%, -50%);
+    }
+}
+
+.conflict-alerts {
+    margin: 2em 0;
+
+    .conflict {
+        background: rgba(255, 0, 0, 0.25);
+        border: 1px solid red;
+        margin: 1em 0;
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
+        &:hover {
+            cursor: pointer;
+            background: rgba(255, 0, 0, 0.35);
+        }
+    }
+}

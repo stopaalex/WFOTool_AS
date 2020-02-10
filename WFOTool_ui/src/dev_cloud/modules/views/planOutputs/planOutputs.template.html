@@ -1,0 +1,158 @@
+<div ng-controller="planOutputsCtrl"
+     class="plan-outputs-container">
+    <div class="header">
+        <div class="text">
+            Plan Output
+        </div>
+        <div class="buttons">
+            <button ng-click="savePlan(outputData)" class="wfo-button primary">
+                Save Plan
+            </button>
+            <button class="wfo-button primary" ng-click="downloadPlan(outputData)">
+                Download
+            </button>
+        </div>
+    </div>
+    
+<!-- filters commented out -->
+    <!-- <div class="filters">
+        <div class="label">
+            Filter to:
+        </div>
+        <select>
+            <option value=""
+                    selected>All Worker Types</option>
+            <option value="test">test</option>
+        </select>
+        <select>
+            <option value=""
+                    selected>All Case Types</option>
+            <option value="test">test</option>
+        </select>
+    </div> -->
+
+    <!-- <div>plan_inputs_id = {{outputData.plan_inputs_id}}</div> -->
+    <!-- <div>id = {{outputData.id}}</div> -->
+    <div class="metrics">
+        <div class="header">
+            Projected Metrics
+        </div>
+        <div class="content">
+            <div class="left">
+                <div class="top">
+                    <div class="metric">
+                        <div class="label">Revenue</div>
+                        <div class="num dollar">{{outputData.summary_metrics.revenue_disp}}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="label">Cost</div>
+                        <div class="num dollar">{{outputData.summary_metrics.cost_disp}}</div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="metric">
+                        <div class="label">ROI</div>
+                        <div class="num">{{outputData.summary_metrics.roi_percent_disp}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <div class="metric">
+                        <div class="label">Success Rate</div>
+                        <div class="num">{{outputData.summary_metrics.success_rate_disp}}</div>
+                    </div>
+                </div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+    </div>
+    <div class="details">
+        <div class="header">
+            Plan Details
+        </div>
+        <div class="table">
+            <table>
+                <tbody>
+                    <tr ng-repeat="row in outputData.plan_details_disp">
+                        <td ng-repeat="col in row track by $index">
+                            {{col}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="chart">
+        <div class="header">
+            {{chartTitle}}
+            <!-- <button ng-click="changeChartTimeframe('minus')" ng-class="{'disabled': chartDisplayTimeframe === 12}">-</button>
+            <button ng-click="changeChartTimeframe('plus')" ng-class="{'disabled': chartDisplayTimeframe === 4}">+</button> -->
+        </div>
+        <div class="content">
+            <div class="chart-filters">
+                <div class="filter-type">
+                    <div class="label">Break down by</div>
+                    <select name="" id="" ng-model="chartDisplayType" ng-change="generateChart()">
+                        <option value="FTE">Worker Type</option>
+                        <option value="AI">Case Type</option>
+                    </select>
+                </div>
+                <div class="filter-location">
+                    <div class="label">Filter Location</div>
+                    <select name="" id="" ng-model="regionSelected" ng-change="generateChart()">
+                        <option ng-repeat="region in regions" value="{{region}}">{{region}}</option>
+                        <!-- <option value="12">Monthly</option>
+                        <option value="4">Quarterly</option> -->
+                    </select>
+                </div>
+                <div class="filter-chart">
+                    <div class="label">Filter Type</div>
+                    <div class="series-contents">
+                        <div class="series" ng-repeat="series in chartDataSeries track by $index" ng-class="{'selected': series.displayed, 'unselectable': series.name !== chartData.series[$index].name && series.displayed === true}">
+                            <input id="{{$index}}{{series.name}}" type="checkbox" ng-model="series.displayed" ng-change="updateChart()">
+                            <label for="{{$index}}{{series.name}}">{{series.name}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-time">
+                    <div class="label">Change timeframe</div>
+                    <select name="" id="" ng-model="chartDisplayTimeframe" ng-change="generateChart()">
+                        <option value="12">Monthly</option>
+                        <option value="4">Quarterly</option>
+                    </select>
+                </div>
+            </div>
+            <div id="myChart" class="chart-display" style="width: calc(100% + 75px);height: 350px"></div>
+        </div>
+    </div>
+
+    <!-- modals -->
+    <div ng-if="savePlanModalShown"
+         class="modal modal-wrapper"
+         ng-click="savePlan_close()">
+        <div class="modal-container"
+             ng-click="$event.stopPropagation()">
+            <div class="modal-title">
+                Give Your Plan a Name
+            </div>
+            <div class="input-name">
+                <div class="input-container">
+                    <input ng-model="savePlanData.title" class="input" type="text">
+                </div>
+            </div>
+            <div class="save-plan-buttons">
+                <div class="save-plan">
+                    <button ng-click="savePlan_submit(savePlanData)"
+                            ng-class="{'disabled': !savePlanData.title.length > 0}"
+                            class="wfo-button primary">Save Plan</button>
+                </div>
+            </div>
+            <div class="close">
+                <button class="wfo-button _icon close"
+                        ng-click="savePlan_close()"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+    </div>
+
+</div>
