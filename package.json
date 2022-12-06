@@ -72,9 +72,9 @@
     "gulp-uglify": "^3.0.2",
     "gulp-zip": "^5.0.1",
     "node-sass": "^4.12.0",
-    "http-server": "^0.9.0"
+    "http-server": "^14.1.1"
   },
   "dependencies": {
-    "http-server": "^0.9.0"
+    "http-server": "^14.1.1"
   }
 }
